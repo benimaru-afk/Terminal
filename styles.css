@@ -1,0 +1,98 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    background-color: #1e1e1e;
+    color: #50fa7b;
+    font-family: monospace;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+}
+
+.terminal {
+    width: 90%;
+    height: 90%;
+    background-color: #282a36;
+    border-radius: 10px;
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+    overflow: hidden;
+}
+
+.output {
+    flex-grow: 1;
+    overflow-y: auto;
+    margin-bottom: 10px;
+}
+
+.input-line {
+    display: flex;
+    align-items: center;
+}
+
+.prompt {
+    color: #6272a4;
+}
+
+#input {
+    background-color: transparent;
+    color: #50fa7b;
+    border: none;
+    flex-grow: 1;
+    outline: none;
+    font-size: 1.2em;
+}
+
+input::placeholder {
+    color: #6272a4;
+}
+
+.output-line {
+    display: flex;
+}
+
+.output-line span {
+    color: #6272a4;
+    margin-right: 5px;
+}
+
+/* Keyframes for glitching effect */
+@keyframes glitch {
+    0% { transform: none; }
+    20% { transform: skewX(-10deg); }
+    40% { transform: none; }
+    60% { transform: skewX(10deg); }
+    80% { transform: none; }
+}
+
+@keyframes glitch-flicker {
+    0% { opacity: 1; }
+    20% { opacity: 0.8; }
+    40% { opacity: 1; }
+    60% { opacity: 0.9; }
+    80% { opacity: 1; }
+    100% { opacity: 1; }
+}
+
+/* Glitch effect applied to the terminal */
+.terminal.glitch {
+    animation: glitch 0.5s ease-in-out, glitch-flicker 0.3s ease-in-out;
+}
+
+/* Matching input text to terminal font */
+#input {
+    background-color: transparent;
+    color: #50fa7b;
+    border: none;
+    flex-grow: 1;
+    outline: none;
+    font-size: 1.2em;
+    font-family: monospace; /* Matching font */
+}
